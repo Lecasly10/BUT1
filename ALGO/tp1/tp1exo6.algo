@@ -2,7 +2,7 @@
 <sauvegarde_eva>
     <!--Ce document est un fichier de sauvegarde Eva 4.0. Pour plus de détails, merci de visiter notre site http://eva.tuxfamily.org/ .-->
     <en_tete>
-        <nom_projet>tp1 exo6.algo</nom_projet>
+        <nom_projet>tp1exo6.algo</nom_projet>
         <classe_sauvegarde>eva.gui.systeme.sauvegarde.SauvegardeAssiste</classe_sauvegarde>
     </en_tete>
     <algo_assiste>
@@ -11,12 +11,14 @@
             <variable nom="res" type="chaine"/>
             <variable nom="min" type="entier"/>
             <variable nom="mintot" type="entier"/>
+            <variable nom="j" type="chaine"/>
         </declarations>
         <instructions>
             <appel_module nom="ecrire">
-                <parametre_effectif>"Saisir heure de visite sous le format heure puis minute"</parametre_effectif>
+                <parametre_effectif>"Saisir le jour et l'heure de visite sous le format heure puis minute"</parametre_effectif>
             </appel_module>
             <appel_module nom="lire">
+                <parametre_effectif>j</parametre_effectif>
                 <parametre_effectif>h</parametre_effectif>
                 <parametre_effectif>min</parametre_effectif>
             </appel_module>
@@ -26,7 +28,7 @@
             </affectation>
             <si>
                 <conditionnelle>
-                    <condition>mintot &gt; 1440</condition>
+                    <condition>mintot &gt; 1440 ou (j = "samedi" et h &gt; 780)</condition>
                     <instructions>
                         <appel_module nom="ecrire">
                             <parametre_effectif>"heure de visite invalide"</parametre_effectif>
@@ -37,7 +39,7 @@
                     <instructions>
                         <si>
                             <conditionnelle>
-                                <condition>mintot &lt; 540</condition>
+                                <condition>mintot &lt; 540 ou mintot &gt; 1080</condition>
                                 <instructions>
                                     <affectation>
                                         <membre_gauche>res</membre_gauche>
@@ -46,31 +48,7 @@
                                 </instructions>
                             </conditionnelle>
                             <conditionnelle>
-                                <condition>mintot &lt; 840</condition>
-                                <instructions>
-                                    <si>
-                                        <conditionnelle>
-                                            <condition>mintot &gt; 720</condition>
-                                            <instructions>
-                                                <affectation>
-                                                    <membre_gauche>res</membre_gauche>
-                                                    <membre_droit>"FERME"</membre_droit>
-                                                </affectation>
-                                            </instructions>
-                                        </conditionnelle>
-                                        <sinon>
-                                            <instructions>
-                                                <affectation>
-                                                    <membre_gauche>res</membre_gauche>
-                                                    <membre_droit>"OUVERT"</membre_droit>
-                                                </affectation>
-                                            </instructions>
-                                        </sinon>
-                                    </si>
-                                </instructions>
-                            </conditionnelle>
-                            <conditionnelle>
-                                <condition>mintot &gt; 1080</condition>
+                                <condition>mintot &lt; 840 et mintot &gt; 720</condition>
                                 <instructions>
                                     <affectation>
                                         <membre_gauche>res</membre_gauche>

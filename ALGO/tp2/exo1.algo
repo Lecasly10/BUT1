@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<sauvegarde_eva>
+    <!--Ce document est un fichier de sauvegarde Eva 4.0. Pour plus de détails, merci de visiter notre site http://eva.tuxfamily.org/ .-->
+    <en_tete>
+        <nom_projet>exo1.algo</nom_projet>
+        <classe_sauvegarde>eva.gui.systeme.sauvegarde.SauvegardeAssiste</classe_sauvegarde>
+    </en_tete>
+    <algo_assiste>
+        <declarations>
+            <variable nom="accord" type="chaine"/>
+            <variable nom="n" type="chaine"/>
+            <variable nom="p" type="chaine"/>
+            <variable nom="age" type="entier"/>
+            <variable nom="taille" type="entier"/>
+            <variable nom="s" type="caractere"/>
+            <variable nom="situ" type="chaine"/>
+            <variable nom="maj" type="chaine"/>
+            <variable nom="t" type="chaine"/>
+            <variable nom="titre" type="chaine"/>
+        </declarations>
+        <instructions>
+            <affectation>
+                <membre_gauche>accord</membre_gauche>
+                <membre_droit>" "</membre_droit>
+            </affectation>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"Saisir le nom et le prénom"</parametre_effectif>
+            </appel_module>
+            <appel_module nom="lire">
+                <parametre_effectif>n</parametre_effectif>
+                <parametre_effectif>p</parametre_effectif>
+            </appel_module>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"Saisir le sexe"</parametre_effectif>
+            </appel_module>
+            <appel_module nom="lire">
+                <parametre_effectif>s</parametre_effectif>
+            </appel_module>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"Saisir l'age et la taille"</parametre_effectif>
+            </appel_module>
+            <appel_module nom="lire">
+                <parametre_effectif>age</parametre_effectif>
+                <parametre_effectif>taille</parametre_effectif>
+            </appel_module>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"Saisir le situation familiale"</parametre_effectif>
+            </appel_module>
+            <appel_module nom="lire">
+                <parametre_effectif>situ</parametre_effectif>
+            </appel_module>
+            <si>
+                <conditionnelle>
+                    <condition>s = 'F'</condition>
+                    <instructions>
+                        <si>
+                            <conditionnelle>
+                                <condition>taille &gt; 165</condition>
+                                <instructions>
+                                    <affectation>
+                                        <membre_gauche>t</membre_gauche>
+                                        <membre_droit>"grand"</membre_droit>
+                                    </affectation>
+                                </instructions>
+                            </conditionnelle>
+                            <sinon>
+                                <instructions>
+                                    <affectation>
+                                        <membre_gauche>t</membre_gauche>
+                                        <membre_droit>"petit"</membre_droit>
+                                    </affectation>
+                                </instructions>
+                            </sinon>
+                        </si>
+                        <si>
+                            <conditionnelle>
+                                <condition>situ = "Celibataire"</condition>
+                                <instructions>
+                                    <affectation>
+                                        <membre_gauche>titre</membre_gauche>
+                                        <membre_droit>"Madame"</membre_droit>
+                                    </affectation>
+                                </instructions>
+                            </conditionnelle>
+                            <sinon>
+                                <instructions>
+                                    <affectation>
+                                        <membre_gauche>titre</membre_gauche>
+                                        <membre_droit>"Mademoiselle"</membre_droit>
+                                    </affectation>
+                                </instructions>
+                            </sinon>
+                        </si>
+                        <affectation>
+                            <membre_gauche>accord</membre_gauche>
+                            <membre_droit>"e "</membre_droit>
+                        </affectation>
+                    </instructions>
+                </conditionnelle>
+                <sinon>
+                    <instructions>
+                        <si>
+                            <conditionnelle>
+                                <condition>taille &gt; 175</condition>
+                                <instructions>
+                                    <affectation>
+                                        <membre_gauche>t</membre_gauche>
+                                        <membre_droit>"grand"</membre_droit>
+                                    </affectation>
+                                </instructions>
+                            </conditionnelle>
+                            <sinon>
+                                <instructions>
+                                    <affectation>
+                                        <membre_gauche>t</membre_gauche>
+                                        <membre_droit>"petit"</membre_droit>
+                                    </affectation>
+                                </instructions>
+                            </sinon>
+                        </si>
+                        <affectation>
+                            <membre_gauche>titre</membre_gauche>
+                            <membre_droit>"Monsieur"</membre_droit>
+                        </affectation>
+                    </instructions>
+                </sinon>
+            </si>
+            <si>
+                <conditionnelle>
+                    <condition>age &gt; 18</condition>
+                    <instructions>
+                        <affectation>
+                            <membre_gauche>maj</membre_gauche>
+                            <membre_droit>"majeur"</membre_droit>
+                        </affectation>
+                    </instructions>
+                </conditionnelle>
+                <sinon>
+                    <instructions>
+                        <affectation>
+                            <membre_gauche>maj</membre_gauche>
+                            <membre_droit>"mineur"</membre_droit>
+                        </affectation>
+                    </instructions>
+                </sinon>
+            </si>
+            <appel_module nom="ecrire">
+                <parametre_effectif>titre</parametre_effectif>
+                <parametre_effectif>' '</parametre_effectif>
+                <parametre_effectif>n</parametre_effectif>
+                <parametre_effectif>' '</parametre_effectif>
+                <parametre_effectif>p</parametre_effectif>
+                <parametre_effectif>", vous etes "</parametre_effectif>
+                <parametre_effectif>maj | accord</parametre_effectif>
+                <parametre_effectif>"et "</parametre_effectif>
+                <parametre_effectif>t | accord</parametre_effectif>
+                <parametre_effectif>"pour votre age."</parametre_effectif>
+            </appel_module>
+        </instructions>
+    </algo_assiste>
+</sauvegarde_eva>
