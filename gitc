@@ -8,16 +8,16 @@ do
 			git add . > /dev/null 2>&1
 			git commit -m $rep > /dev/null 2>&1
 			git push > /dev/null 2>&1
-			echo "Push effectué";;
+			echo "Push effectué\n";;
 		2)	git pull > /dev/null 2>&1
-			echo "pull effectué";;
+			echo "pull effectué\n";;
 		3)	echo "Répertoire à clone"
 			read rep
 			git clone $rep > /dev/null 2>&1
-			echo "clone effectué";;
+			echo "clone effectué\n";;
 		4)	git status;;
 		5)	break;;
-		*)	echo "Mauvaise entrée";;
+		*)	echo "Mauvaise entrée\n";;
 	esac
 done
 
