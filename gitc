@@ -5,10 +5,17 @@ do
 	case $REPLY in
 		1)	echo "Message du commit"
 			read rep
-			git add . > /dev/null 2>&1
-			git commit -m $rep > /dev/null 2>&1
-			git push > /dev/null 2>&1
-			echo -e "Push effectué\n";;
+			git status > verif
+			if [tail verif -c 31 = "la copie de travail est propre"] ; then
+				echo -e "Il n'y a rien à push\n"
+				rm verif
+				break
+			else
+				git add . > /dev/null 2>&1
+				git commit -m $rep > /dev/null 2>&1
+				git push > /dev/null 2>&1
+				echo -e "Push effectué\n"
+			fi;;
 		2)	git pull > /dev/null 2>&1
 			echo -e "pull effectué\n";;
 		3)	echo "Répertoire à clone"
