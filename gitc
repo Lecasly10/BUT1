@@ -1,14 +1,20 @@
 #!/bin/bash
 
-
-case $1 in
-	push)	git status
-		git add .
-		git commit -m $2
-		git push;;
-	pull)	git pull;;
-	"git clone")	git clone $2;;
-	*)	git status;;
-esac
+select choix in "push" "pull" "git clone" "quitter"
+do
+	case $REPLY in
+		1)	echo "Message du commit"
+			read rep
+			git add .
+			git commit -m $rep
+			git push;;
+		2)	git pull;;
+		3)	echo "Répertoire à clone"
+			read rep
+			git clone $rep;;
+		4)	break;;
+		*)	git status;;
+	esac
+done
 
 
