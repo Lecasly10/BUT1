@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<sauvegarde_eva>
+    <!--Ce document est un fichier de sauvegarde Eva 4.0. Pour plus de détails, merci de visiter notre site http://eva.tuxfamily.org/ .-->
+    <en_tete>
+        <nom_projet>tp1 exo3.algo</nom_projet>
+        <classe_sauvegarde>eva.gui.systeme.sauvegarde.SauvegardeAssiste</classe_sauvegarde>
+    </en_tete>
+    <algo_assiste>
+        <declarations>
+            <variable nom="s" type="reel"/>
+            <variable nom="arec" type="reel"/>
+            <variable nom="atri" type="reel"/>
+            <variable nom="acercle" type="reel"/>
+            <variable nom="h" type="reel"/>
+            <variable nom="L" type="reel"/>
+        </declarations>
+        <instructions>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"Saisir les données h et L"</parametre_effectif>
+            </appel_module>
+            <appel_module nom="lire">
+                <parametre_effectif>h</parametre_effectif>
+                <parametre_effectif>L</parametre_effectif>
+            </appel_module>
+            <affectation>
+                <membre_gauche>arec</membre_gauche>
+                <membre_droit>h * L</membre_droit>
+            </affectation>
+            <affectation>
+                <membre_gauche>atri</membre_gauche>
+                <membre_droit>(h * h) / 2</membre_droit>
+            </affectation>
+            <affectation>
+                <membre_gauche>acercle</membre_gauche>
+                <membre_droit>(h * 3.14) / 2</membre_droit>
+            </affectation>
+            <affectation>
+                <membre_gauche>s</membre_gauche>
+                <membre_droit>arec + atri + acercle</membre_droit>
+            </affectation>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"L'aire de la figure est de "</parametre_effectif>
+                <parametre_effectif>s</parametre_effectif>
+            </appel_module>
+        </instructions>
+    </algo_assiste>
+</sauvegarde_eva>

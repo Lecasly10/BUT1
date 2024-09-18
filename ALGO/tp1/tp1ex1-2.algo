@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<sauvegarde_eva>
+    <!--Ce document est un fichier de sauvegarde Eva 4.0. Pour plus de détails, merci de visiter notre site http://eva.tuxfamily.org/ .-->
+    <en_tete>
+        <nom_projet>tp1ex1-2.algo</nom_projet>
+        <classe_sauvegarde>eva.gui.systeme.sauvegarde.SauvegardeAssiste</classe_sauvegarde>
+    </en_tete>
+    <algo_assiste>
+        <declarations>
+            <variable nom="str" type="chaine"/>
+            <variable nom="aff" type="chaine"/>
+        </declarations>
+        <instructions>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"Saisir une phrase "</parametre_effectif>
+            </appel_module>
+            <appel_module nom="lire">
+                <parametre_effectif>str</parametre_effectif>
+            </appel_module>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"Doit on l'afficher"</parametre_effectif>
+            </appel_module>
+            <appel_module nom="lire">
+                <parametre_effectif>aff</parametre_effectif>
+            </appel_module>
+            <si>
+                <conditionnelle>
+                    <condition>aff = "oui"</condition>
+                    <instructions>
+                        <appel_module nom="ecrire">
+                            <parametre_effectif>str</parametre_effectif>
+                        </appel_module>
+                    </instructions>
+                </conditionnelle>
+            </si>
+        </instructions>
+    </algo_assiste>
+</sauvegarde_eva>

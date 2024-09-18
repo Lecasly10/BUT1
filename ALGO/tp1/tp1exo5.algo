@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<sauvegarde_eva>
+    <!--Ce document est un fichier de sauvegarde Eva 4.0. Pour plus de détails, merci de visiter notre site http://eva.tuxfamily.org/ .-->
+    <en_tete>
+        <nom_projet>tp1 exo5.algo</nom_projet>
+        <classe_sauvegarde>eva.gui.systeme.sauvegarde.SauvegardeAssiste</classe_sauvegarde>
+    </en_tete>
+    <algo_assiste>
+        <declarations>
+            <variable nom="num" type="entier"/>
+            <variable nom="denom" type="entier"/>
+            <variable nom="num1" type="entier"/>
+            <variable nom="denom1" type="entier"/>
+            <variable nom="ope" type="chaine"/>
+            <variable nom="denoms" type="entier"/>
+            <variable nom="res" type="caractere"/>
+        </declarations>
+        <instructions>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"Saisir les elements de la premiere fraction"</parametre_effectif>
+            </appel_module>
+            <appel_module nom="lire">
+                <parametre_effectif>num</parametre_effectif>
+                <parametre_effectif>denom</parametre_effectif>
+            </appel_module>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"Saisir les elements de la deuxième fraction"</parametre_effectif>
+            </appel_module>
+            <appel_module nom="lire">
+                <parametre_effectif>num1</parametre_effectif>
+                <parametre_effectif>denom1</parametre_effectif>
+            </appel_module>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"Saisir l'opération demandée"</parametre_effectif>
+            </appel_module>
+            <appel_module nom="lire">
+                <parametre_effectif>ope</parametre_effectif>
+            </appel_module>
+            <affectation>
+                <membre_gauche>denoms</membre_gauche>
+                <membre_droit>denom1 * denom</membre_droit>
+            </affectation>
+            <si>
+                <conditionnelle>
+                    <condition>ope = "somme"</condition>
+                    <instructions>
+                        <appel_module nom="ecrire">
+                            <parametre_effectif>"La somme des deux fractions est : "</parametre_effectif>
+                            <parametre_effectif>(num * denom1) + (num1 * denom)</parametre_effectif>
+                            <parametre_effectif>" / "</parametre_effectif>
+                            <parametre_effectif>denoms</parametre_effectif>
+                        </appel_module>
+                    </instructions>
+                </conditionnelle>
+                <conditionnelle>
+                    <condition>ope = "produit"</condition>
+                    <instructions>
+                        <appel_module nom="ecrire">
+                            <parametre_effectif>"Le produit des deux fractions est : "</parametre_effectif>
+                            <parametre_effectif>(num * num1)</parametre_effectif>
+                            <parametre_effectif>" / "</parametre_effectif>
+                            <parametre_effectif>denoms</parametre_effectif>
+                        </appel_module>
+                    </instructions>
+                </conditionnelle>
+                <conditionnelle>
+                    <condition>ope = "comparaison"</condition>
+                    <instructions>
+                        <si>
+                            <conditionnelle>
+                                <condition>(num * denom1) &gt; (num1 * denom)</condition>
+                                <instructions>
+                                    <affectation>
+                                        <membre_gauche>res</membre_gauche>
+                                        <membre_droit>'&gt;'</membre_droit>
+                                    </affectation>
+                                </instructions>
+                            </conditionnelle>
+                            <conditionnelle>
+                                <condition>(num * denom1) = (num1 * denom)</condition>
+                                <instructions>
+                                    <affectation>
+                                        <membre_gauche>res</membre_gauche>
+                                        <membre_droit>'='</membre_droit>
+                                    </affectation>
+                                </instructions>
+                            </conditionnelle>
+                            <sinon>
+                                <instructions>
+                                    <affectation>
+                                        <membre_gauche>res</membre_gauche>
+                                        <membre_droit>'&lt;'</membre_droit>
+                                    </affectation>
+                                </instructions>
+                            </sinon>
+                        </si>
+                    </instructions>
+                </conditionnelle>
+            </si>
+            <appel_module nom="ecrire">
+                <parametre_effectif>num</parametre_effectif>
+                <parametre_effectif>" / "</parametre_effectif>
+                <parametre_effectif>denom</parametre_effectif>
+                <parametre_effectif>' '</parametre_effectif>
+                <parametre_effectif>res</parametre_effectif>
+                <parametre_effectif>' '</parametre_effectif>
+                <parametre_effectif>num1</parametre_effectif>
+                <parametre_effectif>" / "</parametre_effectif>
+                <parametre_effectif>denom1</parametre_effectif>
+            </appel_module>
+        </instructions>
+    </algo_assiste>
+</sauvegarde_eva>
