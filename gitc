@@ -5,13 +5,13 @@ do
 	case $REPLY in
 		1)	echo "Message du commit"
 			read rep
-			git add .
-			git commit -m $rep
-			git push;;
-		2)	git pull;;
+			git add . > /dev/null 2>&1
+			git commit -m $rep > /dev/null 2>&1
+			git push > /dev/null 2>&1;;
+		2)	git pull > /dev/null 2>&1;;
 		3)	echo "Répertoire à clone"
 			read rep
-			git clone $rep;;
+			git clone $rep > /dev/null 2>&1;;
 		4)	break;;
 		*)	git status;;
 	esac
