@@ -8,7 +8,7 @@ do
 			else
 				echo "Message du commit"
 				read rep
-				git add . > /dev/null 2>&1
+				git add -A > /dev/null 2>&1
 				git commit -m $rep > /dev/null 2>&1
 				git push > /dev/null 2>&1
 				echo -e "Push effectué\n"
