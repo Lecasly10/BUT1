@@ -1,6 +1,14 @@
 #!/bin/bash
 
-git status
-git add .
-git commit -m $1
-git push
+
+case $1 in
+	push)	git status
+		git add .
+		git commit -m $2
+		git push;;
+	pull)	git pull;;
+	"git clone")	git clone $2;;
+	*)	git status;;
+esac
+
+
