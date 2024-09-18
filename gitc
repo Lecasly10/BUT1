@@ -3,14 +3,12 @@
 select choix in "push" "pull" "git clone" "status" "quitter"
 do
 	case $REPLY in
-		1)	echo "Message du commit"
-			read rep
-			git status > verif
-			if [tail verif -c 31 = "la copie de travail est propre"] ; then
+		1)	git status --porcelain | grep -q '^[A-Z]'
+			if [ git diff-index --quiet HEAD -- ] ; then
 				echo -e "Il n'y a rien à push\n"
-				rm verif
-				break
 			else
+				echo "Message du commit"
+				read rep
 				git add . > /dev/null 2>&1
 				git commit -m $rep > /dev/null 2>&1
 				git push > /dev/null 2>&1
