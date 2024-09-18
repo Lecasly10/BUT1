@@ -3,7 +3,7 @@
 select choix in "push" "pull" "git clone" "status" "quitter"
 do
 	case $REPLY in
-		1)	if git diff-index --quiet HEAD --; then
+		1)	if [ -z "$(git status --porcelain)" ]; then
 				echo -e "Il n'y a rien à push\n"
 			else
 				echo "Message du commit"
