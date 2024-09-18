@@ -1,19 +1,23 @@
 #!/bin/bash
 
-select choix in "push" "pull" "git clone" "quitter"
+select choix in "push" "pull" "git clone" "status" "quitter"
 do
 	case $REPLY in
 		1)	echo "Message du commit"
 			read rep
 			git add . > /dev/null 2>&1
 			git commit -m $rep > /dev/null 2>&1
-			git push > /dev/null 2>&1;;
-		2)	git pull > /dev/null 2>&1;;
+			git push > /dev/null 2>&1
+			echo "Push effectué";;
+		2)	git pull > /dev/null 2>&1
+			echo "pull effectué";;
 		3)	echo "Répertoire à clone"
 			read rep
-			git clone $rep > /dev/null 2>&1;;
-		4)	break;;
-		*)	git status;;
+			git clone $rep > /dev/null 2>&1
+			echo "clone effectué";;
+		4)	git status;;
+		5)	break;;
+		*)	echo "Mauvaise entrée";;
 	esac
 done
 
