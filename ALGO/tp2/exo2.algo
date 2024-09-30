@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<sauvegarde_eva>
+    <!--Ce document est un fichier de sauvegarde Eva 4.0. Pour plus de détails, merci de visiter notre site http://eva.tuxfamily.org/ .-->
+    <en_tete>
+        <nom_projet>exo2.algo</nom_projet>
+        <classe_sauvegarde>eva.gui.systeme.sauvegarde.SauvegardeAssiste</classe_sauvegarde>
+    </en_tete>
+    <algo_assiste>
+        <declarations>
+            <variable nom="j" type="entier"/>
+            <variable nom="m" type="entier"/>
+            <variable nom="a" type="entier"/>
+            <variable nom="res" type="booleen"/>
+            <variable nom="bis" type="booleen"/>
+        </declarations>
+        <instructions>
+            <appel_module nom="lire">
+                <parametre_effectif>j</parametre_effectif>
+                <parametre_effectif>m</parametre_effectif>
+                <parametre_effectif>a</parametre_effectif>
+            </appel_module>
+            <si>
+                <conditionnelle>
+                    <condition>(a &gt; 0 et a &lt;= 9999) et (m &gt; 0 et m &lt;= 12) et j &gt; 0</condition>
+                    <instructions>
+                        <si>
+                            <conditionnelle>
+                                <condition>(a mod 4 = 0) et (a mod 100 = 0) et (a mod 400 = 0)</condition>
+                                <instructions>
+                                    <affectation>
+                                        <membre_gauche>bis</membre_gauche>
+                                        <membre_droit>vrai</membre_droit>
+                                    </affectation>
+                                </instructions>
+                            </conditionnelle>
+                            <sinon>
+                                <instructions>
+                                    <affectation>
+                                        <membre_gauche>bis</membre_gauche>
+                                        <membre_droit>faux</membre_droit>
+                                    </affectation>
+                                </instructions>
+                            </sinon>
+                        </si>
+                        <casde>
+                            <conditionnelle>
+                                <condition>m</condition>
+                            </conditionnelle>
+                            <cas>
+                                <expression>5, 7, 9, 11</expression>
+                                <instructions>
+                                    <si>
+                                        <conditionnelle>
+                                            <condition>j &lt;= 30</condition>
+                                            <instructions>
+                                                <affectation>
+                                                    <membre_gauche>res</membre_gauche>
+                                                    <membre_droit>vrai</membre_droit>
+                                                </affectation>
+                                            </instructions>
+                                        </conditionnelle>
+                                        <sinon>
+                                            <instructions>
+                                                <affectation>
+                                                    <membre_gauche>res</membre_gauche>
+                                                    <membre_droit>faux</membre_droit>
+                                                </affectation>
+                                            </instructions>
+                                        </sinon>
+                                    </si>
+                                </instructions>
+                            </cas>
+                            <cas>
+                                <expression>2</expression>
+                                <instructions>
+                                    <si>
+                                        <conditionnelle>
+                                            <condition>bis et (j &lt;= 28)</condition>
+                                            <instructions>
+                                                <affectation>
+                                                    <membre_gauche>res</membre_gauche>
+                                                    <membre_droit>vrai</membre_droit>
+                                                </affectation>
+                                            </instructions>
+                                        </conditionnelle>
+                                        <conditionnelle>
+                                            <condition>bis = faux et (j &lt;= 29)</condition>
+                                            <instructions>
+                                                <affectation>
+                                                    <membre_gauche>res</membre_gauche>
+                                                    <membre_droit>vrai</membre_droit>
+                                                </affectation>
+                                            </instructions>
+                                        </conditionnelle>
+                                        <sinon>
+                                            <instructions>
+                                                <affectation>
+                                                    <membre_gauche>res</membre_gauche>
+                                                    <membre_droit>faux</membre_droit>
+                                                </affectation>
+                                            </instructions>
+                                        </sinon>
+                                    </si>
+                                </instructions>
+                            </cas>
+                            <autres>
+                                <instructions>
+                                    <si>
+                                        <conditionnelle>
+                                            <condition>j &lt;= 31</condition>
+                                            <instructions>
+                                                <affectation>
+                                                    <membre_gauche>res</membre_gauche>
+                                                    <membre_droit>vrai</membre_droit>
+                                                </affectation>
+                                            </instructions>
+                                        </conditionnelle>
+                                        <sinon>
+                                            <instructions>
+                                                <affectation>
+                                                    <membre_gauche>res</membre_gauche>
+                                                    <membre_droit>faux</membre_droit>
+                                                </affectation>
+                                            </instructions>
+                                        </sinon>
+                                    </si>
+                                </instructions>
+                            </autres>
+                        </casde>
+                    </instructions>
+                </conditionnelle>
+                <sinon>
+                    <instructions>
+                        <affectation>
+                            <membre_gauche>res</membre_gauche>
+                            <membre_droit>faux</membre_droit>
+                        </affectation>
+                    </instructions>
+                </sinon>
+            </si>
+            <si>
+                <conditionnelle>
+                    <condition>res</condition>
+                    <instructions>
+                        <appel_module nom="ecrire">
+                            <parametre_effectif>"La date est valide"</parametre_effectif>
+                        </appel_module>
+                    </instructions>
+                </conditionnelle>
+                <sinon>
+                    <instructions>
+                        <appel_module nom="ecrire">
+                            <parametre_effectif>"La date n'est pas valide"</parametre_effectif>
+                        </appel_module>
+                    </instructions>
+                </sinon>
+            </si>
+        </instructions>
+    </algo_assiste>
+</sauvegarde_eva>

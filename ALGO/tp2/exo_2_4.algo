@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<sauvegarde_eva>
+    <!--Ce document est un fichier de sauvegarde Eva 4.0. Pour plus de détails, merci de visiter notre site http://eva.tuxfamily.org/ .-->
+    <en_tete>
+        <nom_projet>exo_2_4.algo</nom_projet>
+        <classe_sauvegarde>eva.gui.systeme.sauvegarde.SauvegardeAssiste</classe_sauvegarde>
+    </en_tete>
+    <algo_assiste>
+        <declarations>
+            <variable nom="ad" type="entier"/>
+            <variable nom="a" type="entier"/>
+            <variable nom="aa" type="entier"/>
+            <variable nom="j" type="entier"/>
+            <variable nom="ja" type="entier"/>
+            <variable nom="m" type="entier"/>
+            <variable nom="ma" type="entier"/>
+            <variable nom="cpt" type="entier"/>
+            <variable nom="jd" type="entier"/>
+        </declarations>
+        <instructions>
+            <appel_module nom="lire">
+                <parametre_effectif>j</parametre_effectif>
+                <parametre_effectif>m</parametre_effectif>
+                <parametre_effectif>a</parametre_effectif>
+            </appel_module>
+            <appel_module nom="lire">
+                <parametre_effectif>ja</parametre_effectif>
+                <parametre_effectif>ma</parametre_effectif>
+                <parametre_effectif>aa</parametre_effectif>
+            </appel_module>
+            <pour>
+                <compteur>i</compteur>
+                <pas>1</pas>
+                <borne_inf>aa</borne_inf>
+                <borne_sup>a</borne_sup>
+                <instructions>
+                    <si>
+                        <conditionnelle>
+                            <condition>i mod 4 = 0 et i mod 100 = 0 et i mod 400 = 0</condition>
+                            <instructions>
+                                <affectation>
+                                    <membre_gauche>cpt</membre_gauche>
+                                    <membre_droit>cpt + 1</membre_droit>
+                                </affectation>
+                            </instructions>
+                        </conditionnelle>
+                    </si>
+                </instructions>
+            </pour>
+            <affectation>
+                <membre_gauche>ad</membre_gauche>
+                <membre_droit>a - aa</membre_droit>
+            </affectation>
+            <affectation>
+                <membre_gauche>jd</membre_gauche>
+                <membre_droit>((ad - cpt) * 365) + (cpt * 366)</membre_droit>
+            </affectation>
+        </instructions>
+    </algo_assiste>
+</sauvegarde_eva>

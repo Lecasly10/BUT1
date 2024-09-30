@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<sauvegarde_eva>
+    <!--Ce document est un fichier de sauvegarde Eva 4.0. Pour plus de détails, merci de visiter notre site http://eva.tuxfamily.org/ .-->
+    <en_tete>
+        <nom_projet>exo_2_3.algo</nom_projet>
+        <classe_sauvegarde>eva.gui.systeme.sauvegarde.SauvegardeAssiste</classe_sauvegarde>
+    </en_tete>
+    <algo_assiste>
+        <declarations>
+            <variable nom="j" type="entier"/>
+            <variable nom="ja" type="entier"/>
+            <variable nom="m" type="entier"/>
+            <variable nom="ma" type="entier"/>
+            <variable nom="a" type="entier"/>
+            <variable nom="aa" type="entier"/>
+            <variable nom="res" type="entier"/>
+        </declarations>
+        <instructions>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"Saisir la dte du jour"</parametre_effectif>
+            </appel_module>
+            <appel_module nom="lire">
+                <parametre_effectif>j</parametre_effectif>
+                <parametre_effectif>m</parametre_effectif>
+                <parametre_effectif>a</parametre_effectif>
+            </appel_module>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"Saisir la date d'anniversaire"</parametre_effectif>
+            </appel_module>
+            <appel_module nom="lire">
+                <parametre_effectif>ja</parametre_effectif>
+                <parametre_effectif>ma</parametre_effectif>
+                <parametre_effectif>aa</parametre_effectif>
+            </appel_module>
+            <si>
+                <conditionnelle>
+                    <condition>m &gt; ma ou (j &gt;= ja et m = ma)</condition>
+                    <instructions>
+                        <affectation>
+                            <membre_gauche>res</membre_gauche>
+                            <membre_droit> a - aa</membre_droit>
+                        </affectation>
+                    </instructions>
+                </conditionnelle>
+                <sinon>
+                    <instructions>
+                        <affectation>
+                            <membre_gauche>res</membre_gauche>
+                            <membre_droit>(a - aa) - 1</membre_droit>
+                        </affectation>
+                    </instructions>
+                </sinon>
+            </si>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"Vous avez "</parametre_effectif>
+                <parametre_effectif>res</parametre_effectif>
+            </appel_module>
+        </instructions>
+    </algo_assiste>
+</sauvegarde_eva>

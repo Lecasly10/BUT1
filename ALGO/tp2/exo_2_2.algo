@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<sauvegarde_eva>
+    <!--Ce document est un fichier de sauvegarde Eva 4.0. Pour plus de détails, merci de visiter notre site http://eva.tuxfamily.org/ .-->
+    <en_tete>
+        <nom_projet>exo_2_2.algo</nom_projet>
+        <classe_sauvegarde>eva.gui.systeme.sauvegarde.SauvegardeAssiste</classe_sauvegarde>
+    </en_tete>
+    <algo_assiste>
+        <declarations>
+            <variable nom="j" type="entier"/>
+            <variable nom="m" type="entier"/>
+            <variable nom="a" type="entier"/>
+            <variable nom="bis" type="booleen"/>
+            <variable nom="res" type="booleen"/>
+        </declarations>
+        <instructions>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"Saisir la date"</parametre_effectif>
+            </appel_module>
+            <appel_module nom="lire">
+                <parametre_effectif>j</parametre_effectif>
+                <parametre_effectif>m</parametre_effectif>
+                <parametre_effectif>a</parametre_effectif>
+            </appel_module>
+            <si>
+                <conditionnelle>
+                    <condition>a mod 4 = 0 et a mod 100 = 0 et a mod 400 = 0</condition>
+                    <instructions>
+                        <affectation>
+                            <membre_gauche>bis</membre_gauche>
+                            <membre_droit>vrai</membre_droit>
+                        </affectation>
+                    </instructions>
+                </conditionnelle>
+            </si>
+            <si>
+                <conditionnelle>
+                    <condition>j = 31 et m = 12</condition>
+                    <instructions>
+                        <affectation>
+                            <membre_gauche>j</membre_gauche>
+                            <membre_droit>1</membre_droit>
+                        </affectation>
+                        <affectation>
+                            <membre_gauche>m</membre_gauche>
+                            <membre_droit>1</membre_droit>
+                        </affectation>
+                        <affectation>
+                            <membre_gauche>a</membre_gauche>
+                            <membre_droit>a + 1</membre_droit>
+                        </affectation>
+                    </instructions>
+                </conditionnelle>
+                <conditionnelle>
+                    <condition>j = 29 et m = 2</condition>
+                    <instructions>
+                        <affectation>
+                            <membre_gauche>j</membre_gauche>
+                            <membre_droit>1</membre_droit>
+                        </affectation>
+                        <affectation>
+                            <membre_gauche>m</membre_gauche>
+                            <membre_droit>m + 1</membre_droit>
+                        </affectation>
+                    </instructions>
+                </conditionnelle>
+                <conditionnelle>
+                    <condition>j = 28 et m = 2 et bis = vrai</condition>
+                    <instructions>
+                        <affectation>
+                            <membre_gauche>j</membre_gauche>
+                            <membre_droit>1</membre_droit>
+                        </affectation>
+                        <affectation>
+                            <membre_gauche>m</membre_gauche>
+                            <membre_droit>m + 1</membre_droit>
+                        </affectation>
+                    </instructions>
+                </conditionnelle>
+                <conditionnelle>
+                    <condition>j = 30</condition>
+                    <instructions>
+                        <casde>
+                            <conditionnelle>
+                                <condition>m</condition>
+                            </conditionnelle>
+                            <cas>
+                                <expression>5, 7, 9, 11</expression>
+                                <instructions>
+                                    <affectation>
+                                        <membre_gauche>j</membre_gauche>
+                                        <membre_droit>1</membre_droit>
+                                    </affectation>
+                                    <affectation>
+                                        <membre_gauche>m</membre_gauche>
+                                        <membre_droit>m + 1</membre_droit>
+                                    </affectation>
+                                </instructions>
+                            </cas>
+                            <autres>
+                                <instructions>
+                                    <affectation>
+                                        <membre_gauche>j</membre_gauche>
+                                        <membre_droit>j + 1</membre_droit>
+                                    </affectation>
+                                </instructions>
+                            </autres>
+                        </casde>
+                    </instructions>
+                </conditionnelle>
+                <conditionnelle>
+                    <condition>j = 31</condition>
+                    <instructions>
+                        <affectation>
+                            <membre_gauche>m</membre_gauche>
+                            <membre_droit>m + 1</membre_droit>
+                        </affectation>
+                        <affectation>
+                            <membre_gauche>j</membre_gauche>
+                            <membre_droit>1</membre_droit>
+                        </affectation>
+                    </instructions>
+                </conditionnelle>
+                <sinon>
+                    <instructions>
+                        <affectation>
+                            <membre_gauche>j</membre_gauche>
+                            <membre_droit>j + 1</membre_droit>
+                        </affectation>
+                    </instructions>
+                </sinon>
+            </si>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"Le date de demain est "</parametre_effectif>
+                <parametre_effectif>j</parametre_effectif>
+                <parametre_effectif>" / "</parametre_effectif>
+                <parametre_effectif>m</parametre_effectif>
+                <parametre_effectif>" / "</parametre_effectif>
+                <parametre_effectif>a</parametre_effectif>
+            </appel_module>
+        </instructions>
+    </algo_assiste>
+</sauvegarde_eva>
