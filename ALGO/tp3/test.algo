@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<sauvegarde_eva>
+    <!--Ce document est un fichier de sauvegarde Eva 4.0. Pour plus de détails, merci de visiter notre site http://eva.tuxfamily.org/ .-->
+    <en_tete>
+        <nom_projet>test.algo</nom_projet>
+        <classe_sauvegarde>eva.gui.systeme.sauvegarde.SauvegardeAssiste</classe_sauvegarde>
+    </en_tete>
+    <algo_assiste>
+        <declarations>
+            <variable nom="v" type="entier"/>
+            <variable nom="nb" type="entier"/>
+            <variable nom="ab" type="entier"/>
+            <variable nom="res" type="entier"/>
+            <variable nom="mul" type="entier"/>
+            <module nom="test_module">
+                <signature>
+                    <parametre_formel mode="entree" nom="a" type="entier"/>
+                    <parametre_formel mode="entree" nom="b" type="entier"/>
+                    <parametre_formel mode="entree_sortie" nom="c" type="entier"/>
+                    <parametre_formel mode="sortie" nom="d" type="entier"/>
+                </signature>
+                <declarations/>
+                <instructions>
+                    <affectation>
+                        <membre_gauche>c</membre_gauche>
+                        <membre_droit>c + a</membre_droit>
+                    </affectation>
+                    <affectation>
+                        <membre_gauche>d</membre_gauche>
+                        <membre_droit>a+b+c</membre_droit>
+                    </affectation>
+                </instructions>
+            </module>
+            <fonction nom="toto" type="entier">
+                <signature>
+                    <parametre_formel mode="entree" nom="nb" type="entier"/>
+                    <parametre_formel mode="entree" nom="ab" type="entier"/>
+                </signature>
+                <declarations/>
+                <instructions>
+                    <affectation>
+                        <membre_gauche>toto</membre_gauche>
+                        <membre_droit>nb * ab</membre_droit>
+                    </affectation>
+                </instructions>
+            </fonction>
+        </declarations>
+        <instructions>
+            <affectation>
+                <membre_gauche>v</membre_gauche>
+                <membre_droit>1</membre_droit>
+            </affectation>
+            <affectation>
+                <membre_gauche>nb</membre_gauche>
+                <membre_droit>2</membre_droit>
+            </affectation>
+            <affectation>
+                <membre_gauche>ab</membre_gauche>
+                <membre_droit>1</membre_droit>
+            </affectation>
+            <appel_module nom="test_module">
+                <parametre_effectif>v</parametre_effectif>
+                <parametre_effectif>nb</parametre_effectif>
+                <parametre_effectif>ab</parametre_effectif>
+                <parametre_effectif>res</parametre_effectif>
+            </appel_module>
+            <affectation>
+                <membre_gauche>mul</membre_gauche>
+                <membre_droit>toto(1,2)</membre_droit>
+            </affectation>
+            <appel_module nom="ecrire">
+                <parametre_effectif>res</parametre_effectif>
+                <parametre_effectif>mul</parametre_effectif>
+            </appel_module>
+        </instructions>
+    </algo_assiste>
+</sauvegarde_eva>

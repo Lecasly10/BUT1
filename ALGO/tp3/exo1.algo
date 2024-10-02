@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<sauvegarde_eva>
+    <!--Ce document est un fichier de sauvegarde Eva 4.0. Pour plus de détails, merci de visiter notre site http://eva.tuxfamily.org/ .-->
+    <en_tete>
+        <nom_projet>exo1.algo</nom_projet>
+        <classe_sauvegarde>eva.gui.systeme.sauvegarde.SauvegardeAssiste</classe_sauvegarde>
+    </en_tete>
+    <algo_assiste>
+        <declarations>
+            <variable nom="n" type="chaine"/>
+            <variable nom="pn" type="chaine"/>
+            <variable nom="sexe" type="caractere"/>
+            <variable nom="t" type="entier"/>
+            <variable nom="age" type="entier"/>
+            <variable nom="st" type="chaine"/>
+            <variable nom="resut" type="chaine"/>
+            <variable nom="resua" type="chaine"/>
+            <variable nom="rang" type="chaine"/>
+            <module nom="taille">
+                <signature>
+                    <parametre_formel mode="entree" nom="sexe" type="caractere"/>
+                    <parametre_formel mode="entree" nom="t" type="entier"/>
+                    <parametre_formel mode="sortie" nom="rest" type="chaine"/>
+                </signature>
+                <declarations/>
+                <instructions>
+                    <affectation>
+                        <membre_gauche>rest</membre_gauche>
+                        <membre_droit>"petit"</membre_droit>
+                    </affectation>
+                    <si>
+                        <conditionnelle>
+                            <condition>sexe = 'F' ou sexe = 'f'</condition>
+                            <instructions>
+                                <si>
+                                    <conditionnelle>
+                                        <condition>t &gt; 165</condition>
+                                        <instructions>
+                                            <affectation>
+                                                <membre_gauche>rest</membre_gauche>
+                                                <membre_droit>"grand"</membre_droit>
+                                            </affectation>
+                                        </instructions>
+                                    </conditionnelle>
+                                </si>
+                            </instructions>
+                        </conditionnelle>
+                        <sinon>
+                            <instructions>
+                                <si>
+                                    <conditionnelle>
+                                        <condition>t &gt; 180</condition>
+                                        <instructions>
+                                            <affectation>
+                                                <membre_gauche>rest</membre_gauche>
+                                                <membre_droit>"grand"</membre_droit>
+                                            </affectation>
+                                        </instructions>
+                                    </conditionnelle>
+                                </si>
+                            </instructions>
+                        </sinon>
+                    </si>
+                </instructions>
+            </module>
+            <module nom="minmaj">
+                <signature>
+                    <parametre_formel mode="entree" nom="age" type="entier"/>
+                    <parametre_formel mode="sortie" nom="min" type="chaine"/>
+                </signature>
+                <declarations/>
+                <instructions>
+                    <affectation>
+                        <membre_gauche>min</membre_gauche>
+                        <membre_droit>"mineur"</membre_droit>
+                    </affectation>
+                    <si>
+                        <conditionnelle>
+                            <condition>age &gt; 18</condition>
+                            <instructions>
+                                <affectation>
+                                    <membre_gauche>min</membre_gauche>
+                                    <membre_droit>"majeur"</membre_droit>
+                                </affectation>
+                            </instructions>
+                        </conditionnelle>
+                    </si>
+                </instructions>
+            </module>
+        </declarations>
+        <instructions>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"Saisissez votre nom, prénom, sexe, taille, age et situation familliale"</parametre_effectif>
+            </appel_module>
+            <appel_module nom="lire">
+                <parametre_effectif>n</parametre_effectif>
+                <parametre_effectif>pn</parametre_effectif>
+                <parametre_effectif>sexe</parametre_effectif>
+                <parametre_effectif>t</parametre_effectif>
+                <parametre_effectif>age</parametre_effectif>
+                <parametre_effectif>st</parametre_effectif>
+            </appel_module>
+            <affectation>
+                <membre_gauche>rang</membre_gauche>
+                <membre_droit>"Monsieur"</membre_droit>
+            </affectation>
+            <appel_module nom="taille">
+                <parametre_effectif>sexe</parametre_effectif>
+                <parametre_effectif>t</parametre_effectif>
+                <parametre_effectif>resut</parametre_effectif>
+            </appel_module>
+            <appel_module nom="minmaj">
+                <parametre_effectif>age</parametre_effectif>
+                <parametre_effectif>resua</parametre_effectif>
+            </appel_module>
+            <si>
+                <conditionnelle>
+                    <condition>sexe = 'F' ou sexe = 'f'</condition>
+                    <instructions>
+                        <affectation>
+                            <membre_gauche>resut</membre_gauche>
+                            <membre_droit>resut | 'e'</membre_droit>
+                        </affectation>
+                        <affectation>
+                            <membre_gauche>resua</membre_gauche>
+                            <membre_droit>resua | 'e'</membre_droit>
+                        </affectation>
+                        <affectation>
+                            <membre_gauche>rang</membre_gauche>
+                            <membre_droit>"Madame"</membre_droit>
+                        </affectation>
+                    </instructions>
+                </conditionnelle>
+            </si>
+            <appel_module nom="ecrire">
+                <parametre_effectif>rang</parametre_effectif>
+                <parametre_effectif>' '</parametre_effectif>
+                <parametre_effectif>n</parametre_effectif>
+                <parametre_effectif>' '</parametre_effectif>
+                <parametre_effectif>pn</parametre_effectif>
+                <parametre_effectif>" vous etes "</parametre_effectif>
+                <parametre_effectif>resut</parametre_effectif>
+                <parametre_effectif>", vous avez "</parametre_effectif>
+                <parametre_effectif>resua</parametre_effectif>
+                <parametre_effectif>" et vous etes "</parametre_effectif>
+                <parametre_effectif>st</parametre_effectif>
+            </appel_module>
+        </instructions>
+    </algo_assiste>
+</sauvegarde_eva>
