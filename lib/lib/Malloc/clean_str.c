@@ -7,9 +7,9 @@
 
 #include "../my.h"
 
-int skip(char *str, int i, char sep1, char sep2)
+int skip(char *str, int i, char sep1)
 {
-    for (; str[i + 1] != '\0' && str[i] != sep1 && str[i] != sep2; i++);
+    for (; str[i + 1] != '\0' && str[i] != sep1; i++);
     return i;
 }
 

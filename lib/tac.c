@@ -4,6 +4,22 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+char *my_substr(char *str1, int final, int begin)
+{
+    char *sortie = malloc(sizeof(char) * (final - begin + 1));
+
+    for (int i = begin; i < final; i++)
+        sortie[i - begin] = str1[i];
+    sortie[final - begin] = '\0';
+    return sortie;
+}
+
+int skip(char *str, int i, char sep1)
+{
+    for (; str[i + 1] != '\0' && str[i] != sep1; i++);
+    return i;
+}
+
 static int count_space(char *str)
 {
     int count = 0;
@@ -11,7 +27,7 @@ static int count_space(char *str)
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] != ' ' && str[i] != '\t'){
             count++;
-            skip(str, i, ' ', '\t');
+            skip(str, i, ' ');
         }
     }
     return count;
@@ -52,40 +68,46 @@ int taille(char *filepath)
     return fileInfo.st_size;
 }
 
-int my_len(char *str)
+int arr_len(char **arr)
 {
     int i = 0;
 
-    for (; str[i] != '\0'; i++);
+    for(; arr[i] != NULL; i++);
     return i;
 }
 
-char *swap(char *str)
+void my_putstr(char *str)
 {
-    int t = my_len(str);
-    char *res = malloc(sizeof(char) * (t + 1));
+    char c = '\n';
 
     for (int i = 0; str[i] != '\0'; i++)
-        res[t - i -1] = str[i];
-    res[t] = '\0';
-    return res;
+        write(1, &str[i], 1);
+    write(1, &c, 1);
+}
+
+void print_revserse_word_array(char **arr)
+{
+    int l = arr_len(arr);
+
+    for (int i = l - 1; i > 0; i--)
+        my_putstr(arr[i]);
 }
 
 int main(int argc, char **argv)
 {
+    char **sw = NULL;
     int res = 0;
     if (argc == 2) {
         int fl = open(argv[1], O_RDWR);
         int size = taille(argv[1] + 1);
         char buffer[size];
         int re = read(fl, buffer, size);
-        char **sw = NULL;
         
+        close(fl);
         buffer[size] = '\0';
         sw = my_str_to_word_array_upgrade(buffer, '\n');
-        sw = swap(buffer);
-        printf("%s\n", sw);
         res = 1;
     }
-    printf("res = %d\n", res);
+    print_revserse_word_array(sw);
+    return res;
 }
