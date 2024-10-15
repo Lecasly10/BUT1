@@ -1,0 +1,10 @@
+#!/bin/bash
+
+toto = 3
+echo $toto
+toto= 3
+echo $toto
+toto =3
+echo $toto
+toto=3
+echo $toto

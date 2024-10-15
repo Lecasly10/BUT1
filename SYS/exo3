@@ -1,0 +1,4 @@
+#!/bin/bash
+
+[ -d TP2 ] && echo "Le répertoire existe déjà" || mkdir TP2 && echo "Le répertoire a été créé"
+[ -f TP2/Rapport_TP2.txt ] && echo "Le fichier existe déjà" || touch TP2/Rapport_TP2.txt && echo "Le fichier a été créé"

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+question="Quelle est la capitale de la France ?"
+reponse_correcte="Paris"
+tentatives=0
+
+until [[ "$user_reponse" == "$reponse_correcte" ||  tentatives -gt 10 ]]; do
+    echo "$question"
+    read -p "Votre réponse: " user_reponse
+    tentatives=$((tentatives + 1))
+done
+
+if (( tentatives < 5 )); then
+    echo "Tié le BOSS"
+else
+    echo "T une sous merde"
+fi
+

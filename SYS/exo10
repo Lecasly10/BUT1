@@ -1,0 +1,33 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <répertoire>"
+    exit 1
+fi
+
+repertoire="$1"
+
+if [ ! -d "$repertoire" ]; then
+    echo "Erreur : Le répertoire '$repertoire' n'existe pas."
+    exit 1
+fi
+
+date=$(date +'%y%m%d')
+nom_sauvegarde="sav$date"
+
+mkdir -p "$nom_sauvegarde"
+
+liste_fichier="liste.txt"
+
+echo "Sauvegarde du $date du répertoire $repertoire" > "$liste_fichier"
+
+for fichier in "$repertoire"/*; do
+    if [ -f "$fichier" ]; then
+        cp "$fichier" "$nom_sauvegarde/"
+        echo "$(basename "$fichier")" >> "$liste_fichier"
+    fi
+done
+
+echo "Sauvegarde terminée dans le répertoire '$nom_sauvegarde'."
+echo "Liste des fichiers copiés dans '$liste_fichier'."
+

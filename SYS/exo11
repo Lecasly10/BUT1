@@ -1,0 +1,48 @@
+#!/bin/bash
+
+select choix in "exo1" "exo2" "exo3" "exo4" "exo5" "exo6" "exo7" "exo8" "exo9" "exo10" "quitter"
+do
+	case $REPLY in
+		1)	echo "Exécution de exo1"
+			./exo1;;
+		2)	echo "Exécution de exo2"
+			./exo2;;
+		3)	echo "Exécution de exo3"
+			./exo3;;
+		4)	echo "Exécution de exo4"
+			./exo4;;
+		5)	echo "Param 1"
+			read p1
+			echo "Param 2"
+			read p2
+			echo "Param 3"
+			read p3
+			echo "Param 4"
+			read p4
+			echo "Param 5"
+			read p5
+			./exo5 $p1 $p2 $p3 $p4 $p5;;
+		6)	echo "Param 1"
+			read p1
+			echo "Exécution de exo6"
+			./exo6 $p1;;
+		7)	echo "Param 1"
+			read p1
+			echo "Param 2"
+			read p2
+			echo "Exécution de exo7"
+			./exo7 $p1 $p2;;
+		8)	echo "Param 1"
+			read p1
+			echo "Exécution de exo8"
+			./exo8 $p1;;
+		9)	echo "Exécution de exo9"
+			./exo9;;
+		10)	echo "Param 1"
+			read p1
+			echo "Exécution de exo10"
+			./exo10 $p1;;
+		11)	break;;
+		*)	echo "Mauvaise entrée";;
+	esac
+done

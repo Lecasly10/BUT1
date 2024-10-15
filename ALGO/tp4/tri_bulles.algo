@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<sauvegarde_eva>
+    <!--Ce document est un fichier de sauvegarde Eva 4.0. Pour plus de détails, merci de visiter notre site http://eva.tuxfamily.org/ .-->
+    <en_tete>
+        <nom_projet>tri_bulles.algo</nom_projet>
+        <classe_sauvegarde>eva.gui.systeme.sauvegarde.SauvegardeAssiste</classe_sauvegarde>
+    </en_tete>
+    <algo_assiste>
+        <declarations>
+            <variable nom="tmp" type="entier"/>
+            <variable nom="j" type="entier"/>
+            <variable nom="i" type="entier"/>
+            <variable nom="echange" type="booleen"/>
+            <variable nom="nb" type="entier"/>
+            <type_tableau nom="T_Tab" type="entier">
+                <dimension>
+                    <borne_inf>1</borne_inf>
+                    <borne_sup>100</borne_sup>
+                </dimension>
+            </type_tableau>
+            <variable nom="t" type="T_Tab"/>
+            <module nom="remplir_tab">
+                <signature>
+                    <parametre_formel mode="sortie" nom="t" type="T_Tab"/>
+                    <parametre_formel mode="sortie" nom="nb" type="entier"/>
+                </signature>
+                <declarations/>
+                <instructions>
+                    <appel_module nom="ecrire">
+                        <parametre_effectif>"Saisissez la valeur de nb"</parametre_effectif>
+                    </appel_module>
+                    <appel_module nom="lire">
+                        <parametre_effectif>nb</parametre_effectif>
+                    </appel_module>
+                    <pour>
+                        <compteur>i</compteur>
+                        <pas>1</pas>
+                        <borne_inf>1</borne_inf>
+                        <borne_sup>nb</borne_sup>
+                        <instructions>
+                            <appel_module nom="ecrire">
+                                <parametre_effectif>"Saisir la valeur de position "</parametre_effectif>
+                                <parametre_effectif>i</parametre_effectif>
+                            </appel_module>
+                            <appel_module nom="lire">
+                                <parametre_effectif>t[i]</parametre_effectif>
+                            </appel_module>
+                        </instructions>
+                    </pour>
+                </instructions>
+            </module>
+            <module nom="affiche_tab">
+                <signature>
+                    <parametre_formel mode="entree" nom="tab" type="T_Tab"/>
+                    <parametre_formel mode="entree" nom="Taille" type="entier"/>
+                </signature>
+                <declarations>
+                    <variable nom="i" type="entier"/>
+                </declarations>
+                <instructions>
+                    <pour>
+                        <compteur>i</compteur>
+                        <pas>1</pas>
+                        <borne_inf>1</borne_inf>
+                        <borne_sup>Taille</borne_sup>
+                        <instructions>
+                            <appel_module nom="ecrire">
+                                <parametre_effectif>tab[i]</parametre_effectif>
+                            </appel_module>
+                        </instructions>
+                    </pour>
+                </instructions>
+            </module>
+        </declarations>
+        <instructions>
+            <appel_module nom="remplir_tab">
+                <parametre_effectif>t</parametre_effectif>
+                <parametre_effectif>nb</parametre_effectif>
+            </appel_module>
+            <affectation>
+                <membre_gauche>echange</membre_gauche>
+                <membre_droit>vrai</membre_droit>
+            </affectation>
+            <appel_module nom="affiche_tab">
+                <parametre_effectif>t</parametre_effectif>
+                <parametre_effectif>nb</parametre_effectif>
+            </appel_module>
+            <tant_que>
+                <instructions>
+                    <affectation>
+                        <membre_gauche>echange</membre_gauche>
+                        <membre_droit>faux</membre_droit>
+                    </affectation>
+                    <pour>
+                        <compteur>i</compteur>
+                        <pas>1</pas>
+                        <borne_inf>1</borne_inf>
+                        <borne_sup>nb - 1</borne_sup>
+                        <instructions>
+                            <affectation>
+                                <membre_gauche>j</membre_gauche>
+                                <membre_droit>i</membre_droit>
+                            </affectation>
+                            <tant_que>
+                                <instructions>
+                                    <si>
+                                        <conditionnelle>
+                                            <condition>t[j + 1] &lt; t[j]</condition>
+                                            <instructions>
+                                                <affectation>
+                                                    <membre_gauche>tmp</membre_gauche>
+                                                    <membre_droit>t[j + 1]</membre_droit>
+                                                </affectation>
+                                                <affectation>
+                                                    <membre_gauche>t[j + 1]</membre_gauche>
+                                                    <membre_droit>t[j]</membre_droit>
+                                                </affectation>
+                                                <affectation>
+                                                    <membre_gauche>t[j]</membre_gauche>
+                                                    <membre_droit>tmp</membre_droit>
+                                                </affectation>
+                                                <affectation>
+                                                    <membre_gauche>echange</membre_gauche>
+                                                    <membre_droit>vrai</membre_droit>
+                                                </affectation>
+                                            </instructions>
+                                        </conditionnelle>
+                                    </si>
+                                    <affectation>
+                                        <membre_gauche>j</membre_gauche>
+                                        <membre_droit>j + 1</membre_droit>
+                                    </affectation>
+                                </instructions>
+                                <condition>j &lt;&gt; (nb - 1)</condition>
+                            </tant_que>
+                        </instructions>
+                    </pour>
+                </instructions>
+                <condition>echange = vrai</condition>
+            </tant_que>
+            <appel_module nom="ecrire">
+                <parametre_effectif>"Table triée"</parametre_effectif>
+            </appel_module>
+            <appel_module nom="affiche_tab">
+                <parametre_effectif>t</parametre_effectif>
+                <parametre_effectif>nb</parametre_effectif>
+            </appel_module>
+        </instructions>
+    </algo_assiste>
+</sauvegarde_eva>

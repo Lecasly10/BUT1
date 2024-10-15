@@ -1,0 +1,9 @@
+#!/bin/bash
+
+case $1 in
+		"français")	echo "bonjour";;
+		"anglais")	echo "good morning";;
+		"espagnol")	echo "hola";;
+		"italien")	echo "ciao";;
+		*)	echo "NTM";;
+esac
