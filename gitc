@@ -5,6 +5,7 @@ do
 	case $REPLY in
 		1)	echo "Message du commit"
 			read rep
+			git config --global user.email victorien.denoyelle@epitech.eu
 			git add -A
 			git commit -m $rep
 			git push -v
