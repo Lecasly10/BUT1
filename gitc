@@ -7,7 +7,7 @@ do
 			read rep
 			git config --global user.email victorien.denoyelle@epitech.eu
 			git add -A
-			git commit -m $rep
+			git commit -m "$rep"
 			git push -v
 			echo -e "Push effectué\n";;
 		2)	git pull 
